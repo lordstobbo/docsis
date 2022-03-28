@@ -558,7 +558,7 @@ symbol_type symtable[NUM_IDENTIFIERS] =  {
 { 752,    "UpstreamMESPReference",             37,     80,     (encode_ushort),         (decode_ushort),         1,           65535         }, /* TLV 24.37 MULPIv3.0-I24 Annex C.2.2.5.11 */
 { 753,    "AQMEncodings",                      40,     80,     (encode_nothing),        (decode_aggregate),      0,           0             }, /* TLV 24.40 MULPIv3.0-I24 Annex C.2.2.7.12 */
 { 754,    "SFAQMDisable",                      1,      753,    (encode_uchar),          (decode_uchar),          0,           1             }, /* TLV 24.40.1 MULPIv3.0-I24 Annex C.2.2.7.12.3 */
-{ 755,    "SFAQMLatencyTarget",                2,      753,    (encode_uchar),          (decode_uchar),          0,           1             }, /* TLV 24.40.2 MULPIv3.0-I24 Annex C.2.2.7.12.4 */
+{ 755,    "SFAQMLatencyTarget",                2,      753,    (encode_uchar),          (decode_uchar),          0,           255           }, /* TLV 24.40.2 MULPIv3.0-I24 Annex C.2.2.7.12.4 */
 { 756,    "DataRateUnitSetting",               41,     80,     (encode_uchar),          (decode_uchar),          0,           3             }, /* TLV 24.41 MULPIv3.0-I24 Annex C.2.2.7.13.1 */
 { 205,    "VendorSpecific",                    43,     80,     (encode_nothing),        (decode_aggregate),      0,           0             }, /* TLV 24.43 MULPIv3.0-I24 Annex C.2.1.11 */
 { 207,    "CMLoadBalancingPolicyID",           1,      205,    (encode_uint),           (decode_uint),           0,           0             }, /* TLV 24.43.1 MULPIv3.0-I24 Annex C.1.1.18.1.1 */
