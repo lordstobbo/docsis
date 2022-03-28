@@ -336,7 +336,14 @@ decode_vbind (unsigned char *data, unsigned int vb_len)
       netsnmp_ds_toggle_boolean (NETSNMP_DS_LIBRARY_ID,
                                  NETSNMP_DS_LIB_ESCAPE_QUOTES);
     } /* Disable escape quotes in string index output  */
-
+/* KW added: display hints were causing issues when decoding, eg, dBLevels 
+  if (!netsnmp_ds_get_boolean
+      (NETSNMP_DS_LIBRARY_ID, NETSNMP_DS_LIB_NO_DISPLAY_HINT))
+    {
+      netsnmp_ds_toggle_boolean (NETSNMP_DS_LIBRARY_ID,
+                                 NETSNMP_DS_LIB_NO_DISPLAY_HINT);
+    } 
+ KW */
   netsnmp_ds_set_int (NETSNMP_DS_LIBRARY_ID,
 			      NETSNMP_DS_LIB_OID_OUTPUT_FORMAT,
 			      NETSNMP_OID_OUTPUT_SUFFIX);
@@ -460,7 +467,6 @@ decode_vbind (unsigned char *data, unsigned int vb_len)
       vp->val_len = sizeof (long);
       asn_parse_int (var_val, &len, &vp->type,
 		     (long *) vp->val.integer, sizeof (vp->val.integer));
-
       break;
     case ASN_COUNTER:
     case ASN_GAUGE:
@@ -600,7 +606,7 @@ decode_vbind (unsigned char *data, unsigned int vb_len)
 		break;
 
     default:
-	snprint_value (outbuf, 1023, vp->name, vp->name_length, vp);
+	snprint_value(outbuf, 1023, vp->name, vp->name_length, vp);
 
     }
 

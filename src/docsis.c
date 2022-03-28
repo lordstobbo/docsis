@@ -694,8 +694,18 @@ setup_mib_flags(int resolve_oids, char *custom_mibs) {
       netsnmp_ds_toggle_boolean (NETSNMP_DS_LIBRARY_ID,
 				 NETSNMP_DS_LIB_NUMERIC_TIMETICKS);
     }				/* so we can use sysContact.0 instead of system.sysContact.0  */
-}
 
+/* KW */
+  if (!netsnmp_ds_get_boolean
+      (NETSNMP_DS_LIBRARY_ID, NETSNMP_DS_LIB_NO_DISPLAY_HINT))
+    {
+      netsnmp_ds_toggle_boolean (NETSNMP_DS_LIBRARY_ID,
+                                 NETSNMP_DS_LIB_NO_DISPLAY_HINT);
+                                /* Display hints were causing issues when decoding, eg, DbLevel OIDs */
+    }
+/* KW */
+
+}
 
 /*
  * Given a string representing a filename path and a new extension_string,
