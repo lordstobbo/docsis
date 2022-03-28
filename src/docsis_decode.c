@@ -38,6 +38,8 @@
 #include "ethermac.h"
 
 unsigned int is_vspecific = FALSE;
+/* KW introduced this flag for arris hack */
+unsigned int is_arris43202 = FALSE;
 
 struct symbol_entry *
 find_symbol_by_code_and_pid (unsigned char code, unsigned int pid)
@@ -512,13 +514,25 @@ void decode_aggregate (unsigned char *tlvbuf, symbol_type *sym, size_t length )
   current_symbol = find_symbol_by_code_and_pid (cp[0], sym->id);
   tlv_vlen = (size_t) cp[1];
   /* printf("tlvbuf has value: %01x\n", tlvbuf); */
-  if (is_vspecific == TRUE) {
+  /* printf("current symbol id is %u\n", current_symbol->id); */
+  /* printf("parent symbol id is %u\n", current_symbol->parent_id); */
+  /* KW qualified vspecific check in non-NULL case instead */
+  /* if (is_vspecific == TRUE) { 
 	  current_symbol = NULL;
-  }
+  } */
   if (current_symbol == NULL) {
 		decode_unknown(cp, NULL, tlv_vlen );
   	} else {
-      		current_symbol->decode_func (cp+1+tlv_llen, current_symbol, tlv_vlen);
+                /* KW nasty hack. If in a 43 but not a 43.202 set symbol back to NULL and decode unknown */
+                if (current_symbol->id == 1500) {
+                        is_arris43202 = TRUE;
+                }
+                if ((is_arris43202 == FALSE) && (is_vspecific == TRUE)) {
+                        current_symbol = NULL;
+                        decode_unknown(cp, NULL, tlv_vlen);
+                } else {
+      		        current_symbol->decode_func (cp+1+tlv_llen, current_symbol, tlv_vlen);
+                }
   	}
  	cp = (unsigned char*) cp + 1 + tlv_llen + tlv_vlen; /* skip type, length value */
   }
@@ -527,6 +541,7 @@ void decode_aggregate (unsigned char *tlvbuf, symbol_type *sym, size_t length )
 
   __docsis_indent(INDENT_NOOP, TRUE);
   is_vspecific = FALSE;
+  is_arris43202 = FALSE;
   printf("}\n");
 }
 
