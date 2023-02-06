@@ -535,7 +535,7 @@ symbol_type symtable[NUM_IDENTIFIERS] =  {
 { 90,     "ActQosParamsTimeout",               12,     80,     (encode_ushort),         (decode_ushort),         0,           65535         }, /* TLV 24.12 MULPIv3.0-I24 Annex C.2.2.7.6 */
 { 91,     "AdmQosParamsTimeout",               13,     80,     (encode_ushort),         (decode_ushort),         0,           65535         }, /* TLV 24.13 MULPIv3.0-I24 Annex C.2.2.7.7 */
 { 92,     "MaxConcatenatedBurst",              14,     80,     (encode_ushort),         (decode_ushort),         0,           65535         }, /* TLV 24.14 MULPIv3.0-I24 Annex C.2.2.8.1 */
-{ 93,     "SchedulingType",                    15,     80,     (encode_uchar),          (decode_uchar),          0,           6             }, /* TLV 24.15 MULPIv3.0-I24 Annex C.2.2.8.2 */
+{ 93,     "SchedulingType",                    15,     80,     (encode_uchar),          (decode_uchar),          0,           7             }, /* TLV 24.15 MULPIv4.0-I06 Annex C.2.2.10.2 */
 { 94,     "RequestOrTxPolicy",                 16,     80,     (encode_hexstr),         (decode_hexstr),         4,           4             }, /* TLV 24.16 MULPIv3.0-I24 Annex C.2.2.8.3 */
 { 95,     "NominalPollInterval",               17,     80,     (encode_uint),           (decode_uint),           0,           0             }, /* TLV 24.17 MULPIv3.0-I24 Annex C.2.2.8.4 */
 { 96,     "ToleratedPollJitter",               18,     80,     (encode_uint),           (decode_uint),           0,           0             }, /* TLV 24.18 MULPIv3.0-I24 Annex C.2.2.8.5 */
@@ -1444,6 +1444,10 @@ symbol_type symtable[NUM_IDENTIFIERS] =  {
 { 348,    "MediaType",                         9,      130,    (encode_uchar),          (decode_uchar),          0,           1             }, /* TLV 79.9 MULPIv3.0-I25 Annex C.3.3.9 */
 { 1419,   "ManufacturerCVCChain",              81,     0,      (encode_hexstr),         (decode_hexstr),         0,           255           }, /* TLV 81 MULPIv3.1-I07 Annex C.1.2.21 */
 { 1420,   "CoSignerCVCChain",                  82,     0,      (encode_hexstr),         (decode_hexstr),         0,           255           }, /* TLV 82 MULPIv3.1-I07 Annex C.1.2.22 */
+{ 1422,    "DiplexerBandEdge",                 84,     0,      (encode_nothing),        (decode_aggregate),      0,           0             }, /* TLV 84 MULPIv3.1-I19 Annex C.1.2.23 */
+{ 1423,    "DiplexerUpstreamUpperBandEdge",    1,      1422,   (encode_uchar),          (decode_uchar),          0,           4             }, /* TLV 84 MULPIv3.1-I19 Annex C.1.2.23.1 */
+{ 1424,    "DiplexerDownstreamLowerBandEdge",  2,      1422,   (encode_uchar),          (decode_uchar),          0,           1             }, /* TLV 84 MULPIv3.1-I19 Annex C.1.2.23.2 */
+{ 1425,    "DiplexerDownstreamUpperBandEdge",  3,      1422,   (encode_uchar),          (decode_uchar),          0,           2             }, /* TLV 84 MULPIv3.1-I19 Annex C.1.2.23.3 */
 
 /* eRouter TLVs */
 { 175,    "eRouter",                           202,    0,      (encode_nothing),        (decode_aggregate),      0,           0             }, /* TLV 202 eRouter-I12 */
