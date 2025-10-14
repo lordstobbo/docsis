@@ -1417,7 +1417,7 @@ symbol_type symtable[NUM_IDENTIFIERS] =  {
 { 496,    "NetworkTimingProfileReference",     1,      495,    (encode_ushort),         (decode_ushort),         1,           65536         }, /* TLV 73.1 MULPIv3.0-I24 Annex C.1.2.19.1 */
 { 497,    "NetworkTimingProfileName",          2,      495,    (encode_strzero),        (decode_strzero),        2,           16            }, /* TLV 73.2 MULPIv3.0-I24 Annex C.1.2.19.2 */
 { 481,    "EnergyManagementParameter",         74,     0,      (encode_nothing),        (decode_aggregate),      0,           0             }, /* TLV 74 MULPIv3.0-I24 Annex C.1.1.30 */
-{ 482,    "EnergyManagementFeatureControl",    1,      481,    (encode_uint),           (decode_uint),           0,           1             }, /* TLV 74.1 MULPIv3.0-I24 Annex C.1.1.30.1 */
+{ 482,    "EnergyManagementFeatureControl",    1,      481,    (encode_uint),           (decode_uint),           0,           3             }, /* TLV 74.1 MULPIv4.0-I07 Annex C.1.1.30.3 */
 { 483,    "EnergyManagement1x1Mode",           2,      481,    (encode_nothing),        (decode_aggregate),      0,           0             }, /* TLV 74.2 MULPIv3.0-I24 Annex C.1.1.30.2 */
 { 484,    "DownstreamActivityDetectionParameters", 1,  483,    (encode_nothing),        (decode_aggregate),      0,           0             }, /* TLV 74.2.1 MULPIv3.0-I24 Annex C.1.1.30.2.1 */
 { 485,    "DownstreamEntryBitrateThreshold",   1,      484,    (encode_uint),           (decode_uint),           0,           0             }, /* TLV 74.2.1.1 MULPIv3.0-I24 Annex C.1.1.30.2.1.1 */
@@ -1430,6 +1430,17 @@ symbol_type symtable[NUM_IDENTIFIERS] =  {
 { 492,    "UpstreamExitBitrateThreshold",      3,      489,    (encode_uint),           (decode_uint),           0,           0             }, /* TLV 74.2.2.3 MULPIv3.0-I24 Annex C.1.1.30.2.2.3 */
 { 493,    "UpstreamExitTimeThreshold",         4,      489,    (encode_ushort),         (decode_ushort),         1,           65535         }, /* TLV 74.2.2.4 MULPIv3.0-I24 Annex C.1.1.30.2.2.4 */
 { 494,    "EnergyManagementCyclePeriod",       3,      481,    (encode_ushort),         (decode_ushort),         0,           0             }, /* TLV 74.2.3 MULPIv3.0-I24 Annex C.1.1.30.3 */
+{ 1488,   "EnergyManagementDLSMode",           4,      481,    (encode_nothing),        (decode_aggregate),      0,           0             }, /* TLV 74.4 MULPIv4.0-I07 Annex C.1.1.30.3 */
+{ 1489,   "DownstreamActivityDetectionParameters", 1,  1488,   (encode_nothing),        (decode_aggregate),      0,           0             }, /* TLV 74.4.1 MULPIv4.0-I07 Annex C.1.1.30.4.1 */
+{ 1490,   "DownstreamEntryBitrateThreshold",   1,      1489,   (encode_uint),           (decode_uint),           0,           0             }, /* TLV 74.4.1.1 MULPIv4.0-I07 Annex C.1.1.30.4.1.1 */
+{ 1491,   "DownstreamEntryTimeThreshold",      2,      1489,   (encode_ushort),         (decode_ushort),         1,           65535         }, /* TLV 74.4.1.2 MULPIv4.0-I07 Annex C.1.1.30.4.1.2 */
+{ 1492,   "DownstreamExitBitrateThreshold",    3,      1489,   (encode_uint),           (decode_uint),           0,           0             }, /* TLV 74.4.1.3 MULPIv4.0-I07 Annex C.1.1.30.4.1.3 */
+{ 1493,   "DownstreamExitTimeThreshold",       4,      1489,   (encode_ushort),         (decode_ushort),         1,           65535         }, /* TLV 74.4.1.4 MULPIv4.0-I07 Annex C.1.1.30.4.1.4 */
+{ 1494,   "UpstreamActivityDetectionParameters", 2,    1488,   (encode_nothing),        (decode_aggregate),      0,           0             }, /* TLV 74.4.2 MULPIv4.0-I07 Annex C.1.1.30.4.2 */
+{ 1495,   "UpstreamEntryBitrateThreshold",     1,      1495,   (encode_uint),           (decode_uint),           0,           0             }, /* TLV 74.4.2.1 MULPIv4.0-I07 Annex C.1.1.30.4.2.1 */
+{ 1496,   "UpstreamEntryTimeThreshold",        2,      1495,   (encode_ushort),         (decode_ushort),         1,           65535         }, /* TLV 74.4.2.2 MULPIv4.0-I07 Annex C.1.1.30.4.2.2 */
+{ 1497,   "UpstreamExitBitrateThreshold",      3,      1495,   (encode_uint),           (decode_uint),           0,           0             }, /* TLV 74.4.2.3 MULPIv4.0-I07 Annex C.1.1.30.4.2.3 */
+{ 1498,   "UpstreamExitTimeThreshold",         4,      1495,   (encode_ushort),         (decode_ushort),         1,           65535         }, /* TLV 74.4.2.4 MULPIv4.0-I07 Annex C.1.1.30.4.2.4 */
 { 479,    "EnergyManagement1x1ModeIndicator",  75,     0,      (encode_uchar),          (decode_uchar),          0,           1             }, /* TLV 75 MULPIv3.0-I24 Annex C.1.4.4 */
 { 480,    "CMUpstreamAQMDisable",              76,     0,      (encode_uchar),          (decode_uchar),          0,           1             }, /* TLV 76 MULPIv3.0-I24 Annex C.1.2.20 */
 { 130,    "UNIControlEncodings",               79,     0,      (encode_nothing),        (decode_aggregate),      0,           0             }, /* TLV 79 MULPIv3.0-I25 Annex C.3.3 */

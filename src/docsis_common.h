@@ -33,7 +33,7 @@
 
 #ifndef NUM_IDENTIFIERS
 /* KW had to update NUM_IDENTIFIERS to accommodate new entries */
-#define NUM_IDENTIFIERS 1459
+#define NUM_IDENTIFIERS 1470
 #endif /*  NUM_IDENTIFIERS, needed in docsis_symtable.h  */
 
 #define MAXINT 2000000000
