@@ -57,7 +57,7 @@ Installation steps
 
 Follow the following steps to download and install the utility.
 
-    git clone https://github.com/lordstobbo/docsis.git
+    git clone git@github.com:lordstobbo/docsis.git
     cd docsis
     ./autogen.sh
     ./configure
